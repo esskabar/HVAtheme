@@ -1,0 +1,101 @@
+.hero_image.bkg_hero_image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.wrapper_reserve_section {
+
+  display: inline-block;
+  width: 29%;
+  transition: .5s;
+  position: relative;
+  margin: 0 35px;
+  max-width: 450px;
+  background: url(../../img/BG-empty.jpg);
+  @media(max-width: 1025px) {
+    width: 300px;
+  }
+  .reserve_logo {
+    padding: 33px 68px;
+    transition: 2s;
+    position: relative;
+    img {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    &:after {
+      content: '';
+      background-color: #000000;
+      height: 1px;
+      position: absolute;
+      width: 92%;
+      margin: 0 auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  .wrapper_reserve_titles {
+    padding: 42px 10px 30px 54px;
+    // margin-top: 0%;
+    // transition: 1s;
+    @media(max-width: 1150px) {
+      padding: 20px 15px;
+    }
+    @media(max-width: 1025px) {
+      padding: 15px 13px;
+    }
+    .reserve_title {
+      font-family: 'Myriad Pro', sans-serif;
+      color: #74cfd0;
+      font-size: 49px;
+      line-height: 1.15;
+      font-weight: 100;
+      @media(max-width: 1025px) {
+        font-size: 35px;
+      }
+    }
+    .reserve_subtitle {
+      font-family: 'Avenir Book', sans-serif;
+      color: #ffffff;
+      font-size: 29px;
+      line-height: 1.3;
+      font-weight: 100;
+      padding-top: 20px;
+      letter-spacing: 0.4px;
+      @media(max-width: 1025px) {
+        font-size: 24px;
+      }
+    }
+    .reserve_subtitle_blue {
+      font-family: 'Avenir Book', sans-serif;
+      color: #74cfd0;
+      font-size: 29px;
+      padding-top: 5px;
+      @media(max-width: 1025px) {
+        font-size: 24px;
+      }
+    }
+    .reserve_button {
+      font-family: 'Avenir', sans-serif;
+      color: #474545;
+      font-size: 19px;
+      background: #74cfd0;
+      display: inline-block;
+      padding: 20px 46px;
+      margin-top: 39px;
+      margin-bottom: 47px;
+      font-weight: 500;
+      cursor: pointer;
+      &:hover {
+        background: #78aad0;
+      }
+    }
+  }
+}

@@ -1,0 +1,124 @@
+.site_gallery_section {
+  text-align: center;
+  .section_title {
+    display: block;
+  }
+
+  .container {
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      width: 1206px;
+      padding: 0;
+    }
+  }
+
+  .col-md-4 {
+    padding: 3px;
+    position: relative;
+    cursor: pointer;
+    max-width: 396px;
+    margin: 0 auto;
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      height: 2px;
+      opacity: 0;
+      transition: .2s .2s;
+      background: #74cfd0;
+      z-index: 1;
+    }
+    .boxe {
+      position: relative;
+      display: block;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100% - 60px);
+        height: calc(100% - 60px);
+        opacity: 0;
+        transition: .3s;
+        border: 2px solid #74cfd0;
+        z-index: 1;
+      }
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #ccc url('../../img/BG-empty.png');
+        opacity: 0;
+        transition: .5s;
+      }
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+      transition: .5s;
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+        width: 32px;
+      }
+      &:after {
+        opacity: 1;
+        height: 32px;
+      }
+      .boxe {
+        &:before {
+          width: calc(100% - 40px);
+          height: calc(100% - 40px);
+          opacity: 1;
+        }
+        &:after {
+          opacity: .3;
+        }
+        img {
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+        }
+      }
+    }
+  }
+
+  .loadmore {
+    display: inline-block;
+    cursor: pointer;
+    color: #000;
+    padding: 20px 20px;
+    font-family: 'Avenir Medium', sans-serif;
+    text-align: center;
+    font-size: 24px;
+    justify-content: center;
+    transition: .3s;
+    i {
+      color: #74cfd0;
+    }
+    &:hover {
+      color: #74cfd0;
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+  .action_load_button {
+    display: block;
+    padding: 30px 40px;
+    cursor: pointer;
+    text-align: center;
+  }
+}

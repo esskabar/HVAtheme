@@ -1,0 +1,16 @@
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+<ifmodule mod_deflate.c>
+Addtype font/truetype .ttf
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css  application/xhtml+xml application/rss+xml application/x-javascript application/javascript text/javascript font/truetype
+</ifmodule>

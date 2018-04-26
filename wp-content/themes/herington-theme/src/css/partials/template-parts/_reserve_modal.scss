@@ -1,0 +1,234 @@
+.wrapper_modal__block {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .7);
+  .modal__block {
+    max-width: 500px;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    max-height: 600px;
+    .close {
+      position: absolute;
+      top: 5px;
+      right: 3px;
+      font-size: 40px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: .3s;
+      &:hover {
+        color: #000;
+      }
+    }
+    .modal_front_bkg {
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 100%;
+    }
+    .modal_back_bkg {
+      position: absolute;
+      transform: rotate(21deg);
+      max-width: 500px;
+      width: 100%;
+      padding-top: 85%;
+      .modal_contact {
+        position: absolute;
+        top: -1%;
+        left: 10%;
+        width: 100%;
+        padding: 28px 32px 200px 32px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        background-color: #fff;
+        .wraper_inputs_back {
+          background-size: cover;
+          background-repeat: no-repeat;
+          padding-top: 85%;
+          background-position: center;
+          position: relative;
+          &:before {
+            content: '';
+            display: block;
+            background: url(../../img/BG-empty.png);
+            opacity: 0.6;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
+    }
+    .modal_front_bkg {
+      position: relative;
+      width: 100%;
+      padding: 28px 32px 50px 32px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      .modal_contact {
+        .wpcf7 {
+          .wpcf7-form {
+            .wraper_inputs {
+              position: relative;
+              background-size: cover;
+              background-repeat: no-repeat;
+              padding: 30px 35px 0;
+              background-position: center;
+              max-height: 420px;
+
+              h3 {
+                font-family: 'Myriad Pro', sans-serif;
+                font-size: 45px;
+                color: #74cfd0;
+                z-index: 2;
+                position: relative;
+                font-weight: 300;
+              }
+              div[class$="_input"] {
+                //position: relative;
+                //  overflow: hidden;
+                margin-top: 5px;
+                //  z-index: 2;
+
+                input, textarea, select {
+                  font-size: 18px;
+                  font-family: 'Avenir Book', sans-serif;
+                  background: transparent;
+                  border: none;
+                  border-bottom: 1px solid #eee;
+                  padding: 10px 0 10px;
+                  width: 100%;
+                  color: #fff;
+                  &:focus, &:active {
+                    outline: none;
+                  }
+                  &::-webkit-input-placeholder {
+                    color: #fff !important;
+                  }
+                  &::-moz-placeholder {
+                    color: #fff !important;
+                  }
+                  &:-moz-placeholder {
+                    color: #fff !important;
+                  }
+                  &:-ms-input-placeholder {
+                    color: #fff !important;
+                  }
+
+                }
+                .wpcf7-not-valid {
+                  border-bottom: 1px solid red;
+                }
+                span.wpcf7-not-valid-tip {
+                  display: none;
+                }
+              }
+              .bedrooms_input {
+                span.wpcf7-form-control-wrap {
+                  .bedrooms-class {
+                    background: none !important;
+                    background-color: transparent !important;
+                    color: #fff;
+                    font-size: 18px;
+                    font-family: 'Avenir Book', sans-serif;
+                    padding-left: 0;
+                    border-bottom: 1px solid #eee;
+                    width: 100%;
+                    option {
+                      background: none !important;
+                      background-color: #3E3E3E !important;
+                    }
+
+                  }
+                  .selection {
+                    i.dropdown {
+                      &:before {
+                        content: '+' !important;
+                      }
+                    }
+                  }
+                  .active {
+                    i.dropdown {
+                      &:before {
+                        content: '-' !important;
+                      }
+                    }
+                  }
+                  .dropdown {
+                    &:focus {
+                      border: none;
+                    }
+                  }
+                }
+              }
+
+              &:before {
+                content: '';
+                display: block;
+                background: url(../../img/BG-empty.png);
+                opacity: 0.6;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+              }
+            }
+            .submit_button {
+              position: relative;
+              text-align: center;
+              input {
+                font-family: 'Boldstylescript', sans-serif;
+                font-size: 50px;
+                text-transform: capitalize;
+                cursor: pointer;
+                // position: absolute;
+                background-color: transparent;
+                margin-top: 45px;
+                box-shadow: none;
+                border: none;
+                background: url(../../img/Line.png) no-repeat bottom center;
+                &:hover {
+                  background-color: #eee;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    &.back {
+
+    }
+    &.front {
+      overflow-y: auto;
+    }
+
+  }
+
+}
+
+textarea {
+  padding: 0 !important;
+  margin-top: 5px;
+  max-height: 100px;
+  width: 100% !important;
+  height: 100% !important;
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+div.wpcf7-validation-errors,
+div.wpcf7-mail-sent-ok {
+  display: none !important;
+}

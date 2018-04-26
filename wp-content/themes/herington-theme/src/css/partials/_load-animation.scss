@@ -1,0 +1,297 @@
+.load-animation {
+  display: none;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  z-index: 9999;
+  overflow: hidden;
+  .slogan {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    font-weight: 300;
+    font-size: 30px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+}
+
+body {
+  &:after {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #1d1d25;
+    content: "";
+    z-index: 9999;
+  }
+}
+
+body.loaded {
+  &:after {
+    display: none;
+  }
+  .load-animation {
+    display: block;
+    * {
+      box-sizing: border-box;
+    }
+    .grid {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      display: flex;
+      justify-content: flex-end;
+      left: 50%;
+      transform: translateX(-50%);
+      .col {
+        width: 12.5vw;
+        transition: 1s;
+        position: relative;
+        height: 100vh;
+        @media(max-width: 1280px) {
+          width: 15vw;
+        }
+        @media(max-width: 1024px) {
+          width: 20vw;
+        }
+        @media(max-width: 800px) {
+          width: 25vw;
+        }
+        @media(max-width: 500px) {
+          width: 33vw;
+        }
+        .shade {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0;
+          background: #1d1d25;
+          transition: 1s;
+          &.active {
+            width: 0;
+          }
+        }
+        &:before, &:after {
+          width: 100%;
+          height: 0;
+          position: absolute;
+          animation-name: movement;
+          animation-duration: 1s;
+          transition: .7s;
+          border-right: 1px solid #fefefe;
+          top: 0;
+          right: 0;
+          content: "";
+          z-index: 1;
+          animation-delay: 6s;
+        }
+        &:after {
+          top: auto;
+          bottom: 0;
+          animation-name: movement2;
+        }
+        &:last-child {
+          border-color: transparent;
+        }
+      }
+    }
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: calc(50% - 10px);
+      transform: translate(-50%, -50%);
+      animation-name: logo;
+      animation-duration: 4s;
+      opacity: 0;
+
+      display: none;
+    }
+    &.fadeOut {
+      .logo {
+        display: none;
+      }
+      .grid {
+        .col {
+          .shade {
+            background: #fff;
+            width: 100%;
+          }
+        }
+      }
+    }
+    &.reload {
+      transition: .5s;
+      background: #1d1d25;
+      .grid {
+        display: none;
+      }
+    }
+    .slogan {
+      .row1, .row2, .row3 {
+        display: inline;
+      }
+      .row2 {
+        position: relative;
+        width: 160px;
+        height: 30px;
+        display: inline-block;
+        vertical-align: middle;
+        span {
+          font-weight: 500;
+          display: inline-block;
+          text-align: center;
+          width: 160px;
+          position: absolute;
+          left: 0;
+          opacity: 0;
+          color: #f46220;
+        }
+      }
+      &.active {
+        .row2 {
+          span {
+            animation-name: slogan;
+            animation-duration: .8s;
+            &:last-child {
+              animation-name: slogan-last;
+              animation-duration: 3s;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@for $i from 0 to 6 {
+  $step: 0.8s;
+  .load-animation .slogan span {
+    &:nth-child(#{$i + 1}) {
+      animation-delay: $step * $i;
+    }
+  }
+}
+
+@keyframes slogan {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-30%);
+    opacity: 0;
+  }
+}
+
+@keyframes slogan-last {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@for $i from 0 to 8 {
+  $step: 0.2s;
+  .load-animation .grid .col {
+    &:nth-child(#{$i + 1}) {
+      .inner {
+        animation-delay: $step * $i;
+      }
+    }
+  }
+}
+
+@keyframes movement {
+  from {
+    height: 0;
+  }
+  35% {
+    height: 50%;
+  }
+  65% {
+    height: 50%;
+    top: 0;
+  }
+  to {
+    height: 0;
+    top: 50%;
+  }
+}
+
+@keyframes movement2 {
+  from {
+    height: 0;
+  }
+  35% {
+    height: 50%;
+  }
+  65% {
+    height: 50%;
+    bottom: 0;
+  }
+  to {
+    height: 0;
+    bottom: 50%;
+  }
+}
+
+@keyframes shade {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes logo {
+  from {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  20% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  40% {
+    opacity: 1;
+    margin-left: 0;
+  }
+  60% {
+    opacity: 1;
+    margin-left: 0;
+  }
+  80% {
+    opacity: 0;
+    margin-left: 100px;
+  }
+  to {
+    opacity: 0;
+    margin-left: 100px;
+  }
+}

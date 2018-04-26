@@ -1,0 +1,24 @@
+@import "vendor/bootstrap";
+@import "vendor/slick/slick.scss";
+@import "vendor/lightGallery/lightgallery";
+@import "partials/fonts";
+@import "partials/bootstrap-select";
+
+@import "partials/reset";
+
+
+
+//HOMEPAGE
+@import "partials/general";
+@import "partials/header";
+@import "partials/footer";
+@import "partials/template-parts/mobile_menu";
+@import "partials/template-parts/hero_image";
+@import "partials/template-parts/reserve_modal";
+@import "partials/template-parts/unit_post_section";
+@import "partials/template-parts/site_gallery_section";
+@import "partials/template-parts/section-urban";
+@import "partials/template-parts/ten-reasons";
+@import "partials/template-parts/welcome";
+@import "partials/template-parts/map";
+@import "partials/template-parts/section-contact";

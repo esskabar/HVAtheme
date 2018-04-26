@@ -1,0 +1,7 @@
+
+/wp-content/cache/*
+.idea
+*.zip
+**/node_modules
+**/DS_Store
+wp-config.php
